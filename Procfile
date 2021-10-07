@@ -1,1 +1,1 @@
-web: ./build/install/com-piper-ktor-sample/bin/com-piper-ktor-sample
+web: ./build/classes/kotlin/main/com/piper/ApplicationKt.class
