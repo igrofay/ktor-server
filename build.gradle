@@ -3,9 +3,11 @@ plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.31'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.5.31'
 }
+
 tasks.create("stage") {
     dependsOn("installDist")
 }
+
 group "com.piper"
 version "0.0.1"
 mainClassName = "com.piper.ApplicationKt"

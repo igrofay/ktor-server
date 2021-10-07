@@ -10,7 +10,7 @@ import java.net.InetAddress
 
 fun main() {
 
-    embeddedServer(Netty ,  port = System.getenv("PORT").toInt()) {
+    embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
         module()
     }.start(wait = true)
 }
