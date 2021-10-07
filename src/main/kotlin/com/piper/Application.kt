@@ -10,18 +10,19 @@ import java.net.InetAddress
 
 fun main() {
 
-    embeddedServer(Netty , host = InetAddress.getLocalHost().hostAddress, port = 6284) {
+    embeddedServer(Netty ,  port = System.getenv("PORT").toInt()) {
         module()
     }.start(wait = true)
 }
 
 fun Application.module() {
     settings()
-    configureRouting()
+    chat()
 }
 
 fun Application.settings(){
     install(ContentNegotiation) {
         json()
     }
+
 }
