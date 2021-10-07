@@ -10,13 +10,17 @@ import java.net.InetAddress
 
 fun main() {
 
-    embeddedServer(Netty , host = InetAddress.getLocalHost().hostAddress , port = 6284) {
+    embeddedServer(Netty , host = InetAddress.getLocalHost().hostAddress, port = 6284) {
         module()
-        configureRouting()
     }.start(wait = true)
 }
 
 fun Application.module() {
+    settings()
+    configureRouting()
+}
+
+fun Application.settings(){
     install(ContentNegotiation) {
         json()
     }

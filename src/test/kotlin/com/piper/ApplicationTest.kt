@@ -1,13 +1,27 @@
 package com.piper
 
-import io.ktor.routing.*
+
 import io.ktor.http.*
-import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.request.*
-import kotlin.test.*
+
 import io.ktor.server.testing.*
-import com.piper.plugins.*
+
+import org.junit.Test
+import kotlin.test.assertEquals
+
+class OrderRouteTests {
+    @Test
+    fun testGetOrder() {
+        withTestApplication({ module() }) {
+            handleRequest(HttpMethod.Get, "/order/2020-04-06-01").apply {
+                assertEquals(
+                    """{"number":"2020-04-06-01","contents":[{"item":"Ham Sandwich","amount":2,"price":5.5},{"item":"Water","amount":1,"price":1.5},{"item":"Beer","amount":3,"price":2.3},{"item":"Cheesecake","amount":1,"price":3.75}]}""",
+                    response.content
+                )
+                assertEquals(HttpStatusCode.OK, response.status())
+            }
+        }
+    }
+}
 
 class ApplicationTest {
 }

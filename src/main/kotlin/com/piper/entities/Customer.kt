@@ -1,4 +1,4 @@
-package com.piper
+package com.piper.entities
 
 import kotlinx.serialization.*
 
