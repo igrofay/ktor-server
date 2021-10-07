@@ -18,6 +18,7 @@ fun main() {
 fun Application.module() {
     settings()
     chat()
+    configureRouting()
 }
 
 fun Application.settings(){
